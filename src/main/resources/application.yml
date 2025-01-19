@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: banking
+  datasource:
+    url: jdbc:mysql://localhost:3306/banking?allowPublicKeyRetrieval=true&useSSL=false
+    username: melvin
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
