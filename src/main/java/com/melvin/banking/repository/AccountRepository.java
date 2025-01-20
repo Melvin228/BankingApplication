@@ -1,9 +1,9 @@
 package com.melvin.banking.repository;
 
-import com.melvin.banking.model.User;
+import com.melvin.banking.model.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface AccountRepository extends JpaRepository<Account, Long> {
 }

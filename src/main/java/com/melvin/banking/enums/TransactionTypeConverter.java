@@ -3,7 +3,7 @@ package com.melvin.banking.enums;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
-@Converter(autoApply = true)
+@Converter
 public class TransactionTypeConverter implements AttributeConverter<TransactionType, String> {
     @Override
     public String convertToDatabaseColumn(final TransactionType transactionType) {

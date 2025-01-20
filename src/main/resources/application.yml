@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: local
   application:
     name: banking
   datasource:
@@ -10,4 +12,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  logging:
+    level:
+      org:
+        thymeleaf: DEBUG
+
 
