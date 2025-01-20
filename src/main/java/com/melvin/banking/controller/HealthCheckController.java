@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HealthCheckController {
-    @GetMapping("/health")
+    private static final String HEALTHCHECK_PAGE = "health";
+
+    @GetMapping(ReqMapping.HealthCheck.BASE_URI)
     public String checkHealth(final Model model) {
         model.addAttribute("message", "Application is up and running");
-        return "health";
+        return HEALTHCHECK_PAGE;
     }
 }

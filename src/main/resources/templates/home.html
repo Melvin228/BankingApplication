@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="en">
+    <head>
+        <title>Home - Banking Application</title>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <h1 class="text-center">Welcome to Your Banking App</h1>
+            <p class="text-center">Manage your accounts, view transactions, and update your profile.</p>
+            <div class="d-flex justify-content-center mt-4">
+                <a href="/accounts" class="btn btn-primary mx-2">View Accounts</a>
+                <a href="/transactions" class="btn btn-primary mx-2">View Transactions</a>
+                <a href="/deposit" class="btn btn-primary mx-2">Deposit Money</a>
+                <a href="/withdrawal" class="btn btn-primary mx-2">Withdraw Money</a>
+                <a href="/accounts/create" class="btn btn-primary mx-2">Create Account</a>
+                <a href="/transfer" class="btn btn-primary mx-2">Transfer Money</a>
+            </div>
+        </div>
+    </body>
+</html>

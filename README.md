@@ -4,8 +4,11 @@ Mock Banking Application
 
 ## Overview
 
-Provide a brief description of your project, its purpose, and any key features.
-
+Banking Application, able to perform these actionss:
+1) Withdrawal
+2) Deposit
+3) Transfer
+4) View Transaction History
 ## Prerequisites
 
 - **Java Development Kit (JDK):** Ensure that JDK 21 or later is installed. You can download it
