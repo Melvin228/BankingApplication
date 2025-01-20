@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer - Banking Application</title>
+</head>
+<body>
+  <div layout:fragment="content">
+    <h2>Withdraw Money</h2>
+    <form th:action="@{/v1/accounts/withdraw/1}" method="post">
+        <div class="mb-3">
+          <label for="fromAccountNumber" class="form-label">From Account Number</label>
+          <input type="text" class="form-control" id="fromAccountNumber" name="fromAccountNumber" placeholder="Enter from account number" required>
+        </div>
+        <div class="mb-3">
+          <label for="toAccountNumber" class="form-label">To Account Number</label>
+          <input type="text" class="form-control" id="toAccountNumber" name="toAccountNumber" placeholder="Enter to account number" required>
+        </div>
+        <div class="mb-3">
+          <label for="amount" class="form-label">Amount</label>
+          <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -17,13 +17,14 @@ public class TransactionServiceImpl implements TransactionService {
     private final TransactionRepository transactionRepository;
 
     @Override
-    public void recordTransaction(final Account fromAccount, final Account toAccount, final TransactionType type, TransactionStatus status, final BigDecimal amount, final String remark) {
-        Transaction transaction = new Transaction();
+    public void recordTransaction(final Account fromAccount, final Account toAccount, final TransactionType type, final TransactionStatus status, final BigDecimal amount, final String remark) {
+        final Transaction transaction = new Transaction();
         transaction.setSourceAccount(fromAccount);
+        transaction.setToAccount(toAccount);
         transaction.setType(type);
         transaction.setAmount(amount);
         transaction.setRemark(remark);
-        transaction.setStatus(status); // You can set status dynamically based on the outcome
+        transaction.setStatus(status);
 
         transactionRepository.save(transaction);
     }

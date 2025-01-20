@@ -6,12 +6,33 @@
         <title>Banking Application</title>
         <link th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" rel="stylesheet" />
         <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}" defer></script>
+        <style>
+            html, body {
+                height: 100%;
+            }
+            body {
+                background-color: #f8f9fa;
+                display: flex;
+                flex-direction: column;
+            }
+            footer {
+                text-align: center;
+                padding: 20px 0;
+                background-color: #343a40;
+                color: #fff;
+            }
+            main {
+                flex: 1; /* Pushes the footer down if content is small */
+            }
+        </style>
     </head>
     <body>
         <div th:replace="~{fragments/header :: header}"></div>
-        <div layout:fragment="content">
-            <p>Default content goes here if no fragment is provided.</p>
-        </div>
+        <main class="container mt-4">
+            <div layout:fragment="content">
+                <p>Default content goes here if no fragment is provided.</p>
+            </div>
+        </main>
 
         <div th:replace="~{fragments/footer :: footer}"></div>
     </body>

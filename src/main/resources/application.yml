@@ -16,5 +16,3 @@ spring:
     level:
       org:
         thymeleaf: DEBUG
-
-
