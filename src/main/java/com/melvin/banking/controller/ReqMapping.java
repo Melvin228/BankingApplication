@@ -30,6 +30,10 @@ final class ReqMapping {
         static final String TRANSFER = "/transfer";
 
         static final String ACCOUNT_CREATION = "/accounts/create";
+
+        static final String SUCCESS = "/success";
+
+        static final String FAIL = "/fail";
     }
 
     enum HealthCheck {

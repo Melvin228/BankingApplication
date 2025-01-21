@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "account")
+@ToString
 public class Account extends Audit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

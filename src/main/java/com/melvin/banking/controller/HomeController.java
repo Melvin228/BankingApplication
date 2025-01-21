@@ -14,6 +14,8 @@ public class HomeController {
     private static final String WITHDRAWAL_PAGE = "withdrawal";
     private static final String TRANSFER_PAGE = "transfer";
     private static final String ACCOUNT_CREATION_PAGE = "createAccount";
+    private static final String SUCCESS_PAGE = "success";
+    private static final String FAIL_PAGE = "fail";
 
     @GetMapping(ReqMapping.View.LANDING)
     public String home() {
@@ -49,5 +51,15 @@ public class HomeController {
     public String accountCreation(Model model) {
         model.addAttribute("account", new AccountDTO());
         return ACCOUNT_CREATION_PAGE;
+    }
+
+    @GetMapping(ReqMapping.View.SUCCESS)
+    public String success() {
+        return SUCCESS_PAGE;
+    }
+
+    @GetMapping(ReqMapping.View.FAIL)
+    public String fail() {
+        return FAIL_PAGE;
     }
 }
