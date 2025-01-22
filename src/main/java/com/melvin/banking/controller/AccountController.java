@@ -2,6 +2,7 @@ package com.melvin.banking.controller;
 
 import com.melvin.banking.common.dto.AccountDTO;
 import com.melvin.banking.model.Account;
+import com.melvin.banking.service.AccountManager;
 import com.melvin.banking.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +18,12 @@ public class AccountController {
 
     private final AccountService accountService;
 
+    private final AccountManager accountManager;
+
     @PostMapping(ReqMapping.Accounts.CREATE_ACCOUNT)
-    public String createAccount(@ModelAttribute("account") AccountDTO accountDTO) {
-        // Redirect to a success page or back to home
+    public String createAccount(@ModelAttribute("account") final AccountDTO accountDTO) {
+        final Account account = accountManager.convertToEntity(accountDTO);
+        accountService.createAccount(account);
         return "redirect:/success"; // or redirect to a success page
     }
 

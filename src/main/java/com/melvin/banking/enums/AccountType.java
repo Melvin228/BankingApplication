@@ -1,5 +1,6 @@
 package com.melvin.banking.enums;
 
+import com.melvin.banking.common.constants.Constants;
 import com.melvin.banking.type.ValueEnum;
 
 public enum AccountType implements ValueEnum<String> {
@@ -26,5 +27,15 @@ public enum AccountType implements ValueEnum<String> {
     @Override
     public String getLabel() {
         return this.label;
+    }
+
+    // Static method to convert value to enum
+    public static AccountType fromValue(String value) {
+        for (AccountType type : values()) {
+            if (type.value.equals(value)) {
+                return type;
+            }
+        }
+        throw new IllegalArgumentException(Constants.ErrorMessage.GENERIC_ERROR);
     }
 }

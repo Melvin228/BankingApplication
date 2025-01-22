@@ -12,7 +12,7 @@ final class ReqMapping {
 
         static final String WITHDRAW_BY_ACCOUNTID = "/withdraw/{accountId}";
 
-        static final String CREATE_ACCOUNT = "/create";
+        static final String CREATE_ACCOUNT = "/";
     }
 
     enum View {
@@ -30,6 +30,10 @@ final class ReqMapping {
         static final String TRANSFER = "/transfer";
 
         static final String ACCOUNT_CREATION = "/accounts/create";
+
+        static final String SUCCESS = "/success";
+
+        static final String FAIL = "/fail";
     }
 
     enum HealthCheck {

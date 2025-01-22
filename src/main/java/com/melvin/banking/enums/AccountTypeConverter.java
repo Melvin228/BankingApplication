@@ -7,7 +7,7 @@ import jakarta.persistence.Converter;
 public class AccountTypeConverter implements AttributeConverter<AccountType, String> {
     @Override
     public String convertToDatabaseColumn(final AccountType accountType) {
-        return accountType != null ? accountType.getLabel() : null;
+        return accountType != null ? accountType.getValue() : null;
     }
 
     @Override

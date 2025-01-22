@@ -23,12 +23,15 @@ Banking Application, able to perform these actionss:
    ```bash
    git clone https://github.com/Melvin228/BankingApplication.git
 
-2. Run the project
+2. Run the project script (Located in app/db/master)
+    
+3. Run the project
 
    ```bash
    ./gradlew bootRun
 
-3. Run gradle build command in the root directory of the project
+4. Run gradle build command in the root directory of the project (for build and deploy purpose)
 
    ```bash
    ./gradlew build 
+   

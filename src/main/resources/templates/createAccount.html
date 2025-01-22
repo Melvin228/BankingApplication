@@ -6,10 +6,20 @@
     </head>
     <body>
     <div layout:fragment="content">
-        <form th:action="@{/accounts/create}" method="post" th:object="${account}">
+        <form th:action="@{/accounts/}" method="post" th:object="${account}">
             <div class="mb-3">
                 <label for="accountNumber" class="form-label">Account Number</label>
                 <input type="text" id="accountNumber" class="form-control" th:field="*{accountNumber}" placeholder="Enter account number" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="accountType" class="form-label">Account Type</label>
+                <select id="accountType" class="form-control" th:field="*{accountType}" required>
+                    <option value="" disabled selected>Select Account Type</option>
+                    <option th:each="type : ${T(com.melvin.banking.enums.AccountType).values()}"
+                            th:value="${type.value}"
+                            th:text="${type.label}"></option>
+                </select>
             </div>
 
             <div class="mb-3">
