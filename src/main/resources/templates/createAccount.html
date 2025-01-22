@@ -6,7 +6,7 @@
     </head>
     <body>
     <div layout:fragment="content">
-        <form th:action="@{/accounts/create}" method="post" th:object="${account}">
+        <form th:action="@{/accounts/}" method="post" th:object="${account}">
             <div class="mb-3">
                 <label for="accountNumber" class="form-label">Account Number</label>
                 <input type="text" id="accountNumber" class="form-control" th:field="*{accountNumber}" placeholder="Enter account number" required />

@@ -22,8 +22,8 @@ public class Account extends Audit {
     @Column(precision = 15, scale = 2)
     private BigDecimal balance;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
 
     @Column(name = "account_number", unique = true)

@@ -49,7 +49,8 @@ public class HomeController {
 
     @GetMapping(ReqMapping.View.ACCOUNT_CREATION)
     public String accountCreation(Model model) {
-        model.addAttribute("account", new AccountDTO());
+        final String accountModel = "account";
+        model.addAttribute(accountModel, new AccountDTO());
         return ACCOUNT_CREATION_PAGE;
     }
 

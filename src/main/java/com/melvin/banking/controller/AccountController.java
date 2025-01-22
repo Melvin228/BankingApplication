@@ -22,9 +22,7 @@ public class AccountController {
 
     @PostMapping(ReqMapping.Accounts.CREATE_ACCOUNT)
     public String createAccount(@ModelAttribute("account") final AccountDTO accountDTO) {
-        System.out.println("Reached here");
         final Account account = accountManager.convertToEntity(accountDTO);
-        System.out.println("Converted DTO:" + account);
         accountService.createAccount(account);
         return "redirect:/success"; // or redirect to a success page
     }

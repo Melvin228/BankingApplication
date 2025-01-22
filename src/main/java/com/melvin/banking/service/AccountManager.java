@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 @Service
 public class AccountManager {
     public Account convertToEntity(final AccountDTO accountDTO) {
-        // Example transformation logic
         final Account account = new Account();
         final User user = new User();
         account.setAccountNumber(accountDTO.getAccountNumber());
@@ -19,6 +18,7 @@ public class AccountManager {
         user.setPhoneNumber(accountDTO.getPhoneNumber());
         user.setEmail(accountDTO.getEmail());
         user.setUsername(accountDTO.getUsername());
+        account.setUser(user);
         return account;
     }
 }

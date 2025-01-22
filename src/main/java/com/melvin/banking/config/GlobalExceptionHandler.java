@@ -1,5 +1,7 @@
 package com.melvin.banking.config;
 
+import com.melvin.banking.common.constants.Constants;
+import com.melvin.banking.common.exception.InvalidAccountDetailsException;
 import com.melvin.banking.common.exception.UserAlreadyExistsException;
 import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
@@ -11,8 +13,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class GlobalExceptionHandler {
     private static final String FAIL_PAGE = "fail";
 
-    private static final String GENERIC_ERROR = "An unexpected error occurred. Please try again.";
-
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public String handleIllegalArgumentException(IllegalArgumentException ex, Model model) {
@@ -22,12 +22,20 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public String handleGenericException(Exception ex, Model model) {
-        model.addAttribute("errorMessage", GENERIC_ERROR);
+        System.out.println(ex.getMessage());
+        model.addAttribute("errorMessage", Constants.ErrorMessage.GENERIC_ERROR);
         return FAIL_PAGE;
     }
 
     @ExceptionHandler(UserAlreadyExistsException.class)
     public String handleUserAlreadyExistsException(UserAlreadyExistsException ex, Model model) {
+        model.addAttribute("errorMessage", ex.getMessage());
+        return FAIL_PAGE;
+    }
+
+    @ExceptionHandler(InvalidAccountDetailsException.class)
+    public String handleInvalidAccountDetails(InvalidAccountDetailsException ex, Model model) {
+        model.addAttribute("errorHeader", Constants.ErrorHeader.INVALID_ACCOUNT_DETAILS_HEADER);
         model.addAttribute("errorMessage", ex.getMessage());
         return FAIL_PAGE;
     }

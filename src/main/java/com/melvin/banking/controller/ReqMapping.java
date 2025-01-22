@@ -12,7 +12,7 @@ final class ReqMapping {
 
         static final String WITHDRAW_BY_ACCOUNTID = "/withdraw/{accountId}";
 
-        static final String CREATE_ACCOUNT = "/create";
+        static final String CREATE_ACCOUNT = "/";
     }
 
     enum View {
