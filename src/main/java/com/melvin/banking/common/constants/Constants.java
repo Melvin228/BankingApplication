@@ -24,7 +24,7 @@ public class Constants {
         public static final String GENERIC_ERROR = "An unexpected error occurred. Please try again.";
         public static final String INVALID_AMOUNT = "Amount must be greater than zero.";
         public static final String ACCOUNT_NOT_FOUND = "Account Not Found.";
-        public static final String INSUFFICIENT_BALANCE = "Insufficient balance for withdrawal.";
+        public static final String INSUFFICIENT_BALANCE = "Insufficient balance for %s.";
         public static final String FROM_ACCOUNT_NOT_FOUND = "From Account Not Found.";
         public static final String TO_ACCOUNT_NOT_FOUND = "To Account Not Found.";
         public static final String CANNOT_TRANSFER_SAME_ACC = "Cannot transfer to the same account.";

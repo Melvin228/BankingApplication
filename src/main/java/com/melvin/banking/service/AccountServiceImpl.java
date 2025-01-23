@@ -41,7 +41,7 @@ public class AccountServiceImpl implements AccountService {
         validateAmount(amount);
         Account account = accountRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException(Constants.ErrorMessage.ACCOUNT_NOT_FOUND));
-        validateBalance(account, amount);
+        validateBalance(account, amount, TransactionType.WITHDRAWAL);
 
         account.setBalance(account.getBalance().subtract(amount));
 
@@ -66,7 +66,7 @@ public class AccountServiceImpl implements AccountService {
             throw new IllegalArgumentException(Constants.ErrorMessage.CANNOT_TRANSFER_SAME_ACC);
         }
 
-        validateBalance(fromAccount, amount);
+        validateBalance(fromAccount, amount, TransactionType.TRANSFER);
 
         // Perform the transfer
         fromAccount.setBalance(fromAccount.getBalance().subtract(amount));
@@ -115,10 +115,10 @@ public class AccountServiceImpl implements AccountService {
         }
     }
 
-    private void validateBalance(final Account account, BigDecimal amount) {
+    private void validateBalance(final Account account, final BigDecimal amount, final TransactionType transactionType) {
         // Validate if the account has enough balance for withdrawal
         if (account.getBalance().compareTo(amount) < 0) {
-            throw new IllegalArgumentException(Constants.ErrorMessage.INSUFFICIENT_BALANCE);
+            throw new IllegalArgumentException(String.format(Constants.ErrorMessage.INSUFFICIENT_BALANCE, transactionType.getLabel()));
         }
     }
 }
