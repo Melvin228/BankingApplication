@@ -8,21 +8,42 @@
 <body>
   <div layout:fragment="content">
     <h2>Withdraw Money</h2>
-    <form th:action="@{/v1/accounts/withdraw/1}" method="post">
+    <form th:action="@{/accounts/transfer}" method="post" th:object="${transferdto}">
         <div class="mb-3">
-          <label for="fromAccountNumber" class="form-label">From Account Number</label>
-          <input type="text" class="form-control" id="fromAccountNumber" name="fromAccountNumber" placeholder="Enter from account number" required>
+            <label for="fromAccountNumber" class="form-label">From Account Number</label>
+            <select class="form-control" id="fromAccountNumber" name="accountId" th:field="*{fromAccountId}" required>
+                <option value="" disabled selected>Select or type an account number</option>
+                <!-- Populate options dynamically from the accounts list in the model -->
+                <th:block th:each="account : ${accounts}">
+                    <option th:value="${account.id}" th:text="${account.accountNumber}"></option>
+                </th:block>
+            </select>
         </div>
         <div class="mb-3">
-          <label for="toAccountNumber" class="form-label">To Account Number</label>
-          <input type="text" class="form-control" id="toAccountNumber" name="toAccountNumber" placeholder="Enter to account number" required>
+            <label for="toAccountNumber" class="form-label">From Account Number</label>
+            <select class="form-control" id="toAccountNumber" name="accountId" th:field="*{toAccountId}" required>
+                <option value="" disabled selected>Select or type an account number</option>
+                <!-- Populate options dynamically from the accounts list in the model -->
+                <th:block th:each="account : ${accounts}">
+                    <option th:value="${account.id}" th:text="${account.accountNumber}"></option>
+                </th:block>
+            </select>
         </div>
         <div class="mb-3">
           <label for="amount" class="form-label">Amount</label>
-          <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount" required>
+          <input type="number" th:field="*{amount}" class="form-control" id="amount" name="amount" placeholder="Enter amount" required>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
 </body>
+
+<script>
+    $(document).ready(function() {
+        $('#accountNumber').select2({
+            placeholder: 'Select or type an account number',
+            allowClear: true
+        });
+    });
+</script>
 </html>

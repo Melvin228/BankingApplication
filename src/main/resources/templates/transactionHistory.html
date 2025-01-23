@@ -1,45 +1,64 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <body>
-    <head>
-        <title>Transaction History - Banking Application</title>
-    </head>
-    <div layout:fragment="content">
-        <h2>Transactions</h2>
-        <form class="row g-3 my-4">
-            <div class="col-md-4">
-                <label for="startDate" class="form-label">Start Date</label>
-                <input type="date" class="form-control" id="startDate" name="startDate">
-            </div>
-            <div class="col-md-4">
-                <label for="endDate" class="form-label">End Date</label>
-                <input type="date" class="form-control" id="endDate" name="endDate">
-            </div>
-            <div class="col-md-4 d-flex align-items-end">
-                <button type="submit" class="btn btn-primary">Filter</button>
-            </div>
-        </form>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Date</th>
-                <th>Description</th>
-                <th>Amount</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>2025-01-01</td>
-                <td>Deposit</td>
-                <td>$1,000.00</td>
-            </tr>
-            <tr>
-                <td>2025-01-05</td>
-                <td>Withdrawal</td>
-                <td>-$500.00</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+<head>
+    <title>Transaction History - Banking Application</title>
+</head>
+<div layout:fragment="content">
+    <h2>Transactions</h2>
+    <form class="row g-3 my-4">
+        <div class="col-md-4">
+            <label for="startDate" class="form-label">Start Date</label>
+            <input type="date" class="form-control" id="startDate" name="startDate">
+        </div>
+        <div class="col-md-4">
+            <label for="endDate" class="form-label">End Date</label>
+            <input type="date" class="form-control" id="endDate" name="endDate">
+        </div>
+        <div class="col-md-4 d-flex align-items-end">
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </div>
+    </form>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>From Account</th>
+            <th>To Account</th>
+            <th>Amount</th>
+            <th>Transaction Type</th>
+            <th>Transaction Status</th>
+            <th>Remark</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="transaction : ${transactions}">
+            <!-- Display the date of transaction -->
+            <td th:text="${transaction.createdDate}">2025-01-01</td>
+
+            <!-- Display the 'from' account number, or 'N/A' if null -->
+            <td th:text="${transaction.sourceAccount != null ? transaction.sourceAccount.accountNumber : 'N/A'}">
+                123456789
+            </td>
+
+            <!-- Display the 'to' account number, or 'N/A' if null -->
+            <td th:text="${transaction.toAccount != null ? transaction.toAccount.accountNumber : 'N/A'}">987654321</td>
+
+            <!-- Display the amount, formatted properly -->
+            <td th:text="${'RM ' + transaction.amount}">RM 1,000.00</td>
+
+            <!-- Display the transaction type -->
+            <td th:text="${transaction.type.label}">Deposit</td>
+
+            <!-- Display the transaction status -->
+            <td th:text="${transaction.status.label}">Success</td>
+
+            <!-- Display the remark -->
+            <td th:text="${transaction.remark}">Deposit for savings</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

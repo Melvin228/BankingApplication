@@ -6,6 +6,7 @@
     </head>
     <body>
     <div layout:fragment="content">
+        <h2 class="mb-2">Create Account</h2>
         <form th:action="@{/accounts/}" method="post" th:object="${account}">
             <div class="mb-3">
                 <label for="accountNumber" class="form-label">Account Number</label>
@@ -16,7 +17,7 @@
                 <label for="accountType" class="form-label">Account Type</label>
                 <select id="accountType" class="form-control" th:field="*{accountType}" required>
                     <option value="" disabled selected>Select Account Type</option>
-                    <option th:each="type : ${T(com.melvin.banking.enums.AccountType).values()}"
+                    <option th:each="type : ${T(com.melvin.banking.common.enums.AccountType).values()}"
                             th:value="${type.value}"
                             th:text="${type.label}"></option>
                 </select>

@@ -1,4 +1,4 @@
-package com.melvin.banking.enums;
+package com.melvin.banking.common.enums;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
@@ -13,7 +13,7 @@ public class AccountTypeConverter implements AttributeConverter<AccountType, Str
     @Override
     public AccountType convertToEntityAttribute(final String s) {
         for (final AccountType type : AccountType.values()) {
-            if (type.getLabel().equals(s)) {
+            if (type.getValue().equals(s)) {
                 return type;
             }
         }

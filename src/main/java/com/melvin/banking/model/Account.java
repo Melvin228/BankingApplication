@@ -1,7 +1,7 @@
 package com.melvin.banking.model;
 
-import com.melvin.banking.enums.AccountType;
-import com.melvin.banking.enums.AccountTypeConverter;
+import com.melvin.banking.common.enums.AccountType;
+import com.melvin.banking.common.enums.AccountTypeConverter;
 import jakarta.persistence.*;
 import lombok.*;
 

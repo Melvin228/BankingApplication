@@ -7,7 +7,7 @@
     <body>
         <div layout:fragment="content">
             <h2>Deposit Money</h2>
-            <form th:action="@{/v1/accounts/deposit/1}" method="post">
+            <form th:action="@{/accounts/deposit}" method="post" th:object="${transactiondto}">
                 <div th:insert="fragments/transaction/transactionForm :: transactionForm"></div>
             </form>
         </div>

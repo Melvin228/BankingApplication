@@ -13,19 +13,20 @@
                     <th>Account Number</th>
                     <th>Account Type</th>
                     <th>Balance</th>
+                    <th>User</th>
+                    <th>Transaction History</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>123456789</td>
-                    <td>Checking</td>
-                    <td>$5,000.00</td>
-                </tr>
-                <tr>
-                    <td>987654321</td>
-                    <td>Savings</td>
-                    <td>$10,000.00</td>
-                </tr>
+                    <tr th:each="account:${accounts}">
+                        <td th:text="${account.accountNumber}">Account Number</td>
+                        <td th:text="${account.type.label}">Account type</td>
+                        <td th:text="'RM ' + ${account.balance}">Account Balance</td>
+                        <td th:text="${account.user.username}">User</td>
+                        <td>
+                            <a th:href="@{/transactions/{accountId}(accountId=${account.id})}" class="btn btn-primary">View History</a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
