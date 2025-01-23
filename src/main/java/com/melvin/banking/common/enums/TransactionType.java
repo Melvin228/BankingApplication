@@ -1,4 +1,4 @@
-package com.melvin.banking.enums;
+package com.melvin.banking.common.enums;
 
 
 import com.melvin.banking.type.ValueEnum;

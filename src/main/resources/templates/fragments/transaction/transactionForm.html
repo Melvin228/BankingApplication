@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <body>
-        <div th:fragment="transactionForm">
-            <div class="mb-3">
-                <label for="accountNumber" class="form-label">Account Number</label>
-                <input type="text" class="form-control" id="accountNumber" name="accountNumber" placeholder="Enter account number" required>
-            </div>
-            <div class="mb-3">
-                <label for="amount" class="form-label">Amount</label>
-                <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </body>
+<body>
+<div th:fragment="transactionForm">
+    <div class="mb-3">
+        <label for="accountNumber" class="form-label">Account Number</label>
+        <select class="form-control" id="accountNumber" name="accountId" th:field="*{accountId}" required>
+            <option value="" disabled selected>Select or type an account number</option>
+            <!-- Populate options dynamically from the accounts list in the model -->
+            <th:block th:each="account : ${accounts}">
+                <option th:value="${account.id}" th:text="${account.accountNumber}"></option>
+            </th:block>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="amount" class="form-label">Amount</label>
+        <input type="number" th:field="*{amount}" class="form-control" id="amount" name="amount"
+               placeholder="Enter amount" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</body>
+
+<script>
+    $(document).ready(function() {
+        $('#accountNumber').select2({
+            placeholder: 'Select or type an account number',
+            allowClear: true
+        });
+    });
+</script>
 </html>

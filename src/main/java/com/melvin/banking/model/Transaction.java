@@ -1,9 +1,9 @@
 package com.melvin.banking.model;
 
-import com.melvin.banking.enums.TransactionStatus;
-import com.melvin.banking.enums.TransactionStatusConverter;
-import com.melvin.banking.enums.TransactionType;
-import com.melvin.banking.enums.TransactionTypeConverter;
+import com.melvin.banking.common.enums.TransactionStatus;
+import com.melvin.banking.common.enums.TransactionStatusConverter;
+import com.melvin.banking.common.enums.TransactionType;
+import com.melvin.banking.common.enums.TransactionTypeConverter;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,12 +28,12 @@ public class Transaction extends Audit {
     private TransactionStatus status;
 
     @ManyToOne
-    @JoinColumn(name = "source_acc_id", referencedColumnName = "id")
-    private Account sourceAccount;  // Corrected the type to Account
+    @JoinColumn(name = "source_acc_id", referencedColumnName = "id", nullable = true)
+    private Account sourceAccount;
 
     @ManyToOne
-    @JoinColumn(name = "to_acc_id", referencedColumnName = "id")
-    private Account toAccount;  // Corrected the type to Account
+    @JoinColumn(name = "to_acc_id", referencedColumnName = "id", nullable = true)
+    private Account toAccount;
 
     private BigDecimal amount;
 

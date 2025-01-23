@@ -35,3 +35,6 @@ Banking Application, able to perform these actionss:
    ```bash
    ./gradlew build 
    
+### Seed data
+
+1. Already inserted to db once startup.

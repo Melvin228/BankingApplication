@@ -1,4 +1,4 @@
-package com.melvin.banking.enums;
+package com.melvin.banking.common.enums;
 
 import com.melvin.banking.type.ValueEnum;
 
@@ -18,7 +18,7 @@ public enum TransactionStatus implements ValueEnum {
     }
 
     @Override
-    public Object getValue() {
+    public String getValue() {
         return this.value;
     }
 

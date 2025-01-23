@@ -1,6 +1,6 @@
 package com.melvin.banking.common.dto;
 
-import com.melvin.banking.enums.AccountType;
+import com.melvin.banking.common.enums.AccountType;
 import lombok.*;
 
 @Getter
