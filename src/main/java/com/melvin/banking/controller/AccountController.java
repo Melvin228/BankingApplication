@@ -38,6 +38,13 @@ public class AccountController {
         return BALANCE_INQUIRY_PAGE;
     }
 
+    @GetMapping(ReqMapping.Accounts.VIEW_ALL)
+    public String viewAllAccounts(final Model model) {
+        final CustomUser user = SecurityUtils.getCurrentUserDetailsSafely();
+        model.addAttribute(ACCOUNT_MODEL, accountService.findAccounts());
+        return BALANCE_INQUIRY_PAGE;
+    }
+
     @GetMapping(ReqMapping.Accounts.DEPOSIT)
     public String deposit(Model model) {
         final CustomUser user = SecurityUtils.getCurrentUserDetailsSafely();

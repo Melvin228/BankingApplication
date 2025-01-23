@@ -11,6 +11,8 @@ final class ReqMapping {
 
         static final String BALANCE_INQUIRY = "";
 
+        static final String VIEW_ALL = "/all";
+
         static final String DEPOSIT = "/deposit";
 
         static final String WITHDRAWAL = "/withdrawal";
