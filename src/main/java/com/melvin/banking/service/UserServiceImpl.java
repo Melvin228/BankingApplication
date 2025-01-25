@@ -22,6 +22,6 @@ public class UserServiceImpl implements UserService {
         if (user == null) {
             throw new IllegalArgumentException(Constants.ErrorMessage.INVALID_USER_DETAILS);
         }
-        return !(userRepository.existsByEmail(user.getEmail()) && userRepository.existsByUsername(user.getUsername()));
+        return userRepository.existsByEmail(user.getEmail()) && userRepository.existsByUsername(user.getUsername());
     }
 }
