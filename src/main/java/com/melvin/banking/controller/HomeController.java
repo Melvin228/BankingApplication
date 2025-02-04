@@ -2,7 +2,6 @@ package com.melvin.banking.controller;
 
 import com.melvin.banking.common.dto.AccountDTO;
 import com.melvin.banking.common.model.CustomUser;
-import com.melvin.banking.model.User;
 import com.melvin.banking.security.SecurityUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
